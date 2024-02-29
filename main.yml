@@ -2,7 +2,7 @@ name: greeting-app
 
 on:
   push:
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,3 +10,17 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 14
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Tests
+      run: npm test
+
+    - name: Display Directory Contents
+      run: ls -R
