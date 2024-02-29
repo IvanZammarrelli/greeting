@@ -1,4 +1,9 @@
 const { submitName, updateUI } = require('./greetingApp');
+const { JSDOM } = require('jsdom');
+
+// Create a simple DOM environment
+const dom = new JSDOM('<html><body></body></html>');
+global.document = dom.window.document;
 
 test('submitName function works correctly', () => {
   // Mocking document.getElementById
